@@ -26,7 +26,7 @@ def triangle(a, b, c)
   # else :scalene
   # end
 
-  # Better answer from stack overflow: (slightly modified)
+  # Better answer by looking at stackoverflow posts:
   a,b,c = [a,b,c].sort
   raise TriangleError, 'Invalid side lengths' if a + b <= c
   [:equilateral, :isosceles, :scalene][[a,b,c].uniq.size - 1]
