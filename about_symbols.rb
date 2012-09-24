@@ -101,4 +101,8 @@ class AboutSymbols < EdgeCase::Koan
   # THINK ABOUT IT:
   #
   # Why is it not a good idea to dynamically create a lot of symbols?
+  #
+  # Symbols are only put into memory once. If you dynamically create a lot of
+  # symbols, you are allocating memory that can't be freed until your program
+  # ends. 
 end
