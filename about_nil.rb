@@ -33,6 +33,8 @@ class AboutNil < EdgeCase::Koan
     # or
     #    obj == nil
     # Why?
+    #
+    # obj may override == to respond true to nil, without being nil itself
   end
 
 end
