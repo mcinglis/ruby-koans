@@ -33,8 +33,6 @@ def score(dice)
   # dice.inject(Hash.new(0)) { |hash, result|
   #   hash[result] += 1
   #   hash
-  # }.select { |result,count|
-  #   result == 1 || result == 5 || count >= 3
   # }.each_pair.inject(0) { |points, pair|
   #   result, count = pair
   #   points += case result
