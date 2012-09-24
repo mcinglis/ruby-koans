@@ -29,7 +29,7 @@ def triangle(a, b, c)
   # Better answer from stack overflow: (slightly modified)
   a,b,c = [a,b,c].sort
   raise TriangleError, 'Invalid side lengths' if a + b <= c
-  [:equilateral, :isosceles, :scalene].fetch([a,b,c].uniq.size - 1)
+  [:equilateral, :isosceles, :scalene][[a,b,c].uniq.size - 1]
 end
 
 # Error class used in part 2.  No need to change this code.
