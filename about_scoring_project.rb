@@ -30,7 +30,32 @@ require File.expand_path(File.dirname(__FILE__) + '/edgecase')
 # Your goal is to write the score method.
 
 def score(dice)
-  # You need to write this method
+  # dice.inject(Hash.new(0)) { |hash, result|
+  #   hash[result] += 1
+  #   hash
+  # }.select { |result,count|
+  #   result == 1 || result == 5 || count >= 3
+  # }.each_pair.inject(0) { |points, pair|
+  #   result, count = pair
+  #   points += case result
+  #             when 1 then ((count / 3) * 1000) + ((count % 3) * 100)
+  #             when 5 then ((count / 3) * 500) + ((count % 3) * 50)
+  #             else ((count / 3) * (result * 100))
+  #             end
+  # }
+
+  # Better stackoverflow solution (although mine would work for dies of any
+  # parity) (slightly modified)
+
+  (1..6).map do |result|
+    count = dice.count(result)
+    case result
+    when 1 then (1000 * (count / 3)) + (100 * (count % 3))
+    when 5 then (500 * (count / 3)) + (50 * (count % 3))
+    else 100 * result * (count / 3)
+    end
+  end.reduce(:+)
+
 end
 
 class AboutScoringProject < EdgeCase::Koan
